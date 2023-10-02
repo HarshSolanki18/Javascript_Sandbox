@@ -1,15 +1,14 @@
 let rating=2
 function replaceIcons(event,index){
     let startsDiv=document.getElementsByClassName("stars")[0];
-    
     let childNodes=startsDiv.childNodes;
     for(let i=0;i<5;i++){
         
         if(index>i){
-        childNodes[i+1].setAttribute("class","fa fa-star");
+        childNodes[i+1].setAttribute("class",event.type=="mouseover"? "star-hover fa fa-star":"star fa fa-star");
     }else{
-        childNodes[i+1].setAttribute("class","fa fa-star-o");
-        childNodes[i+1].setAttribute("style","font-size:30px;color:rgba(255, 255, 0, 0.5)")
+        childNodes[i+1].setAttribute("class","star fa fa-star-o");
+       
 
     }
             
@@ -39,11 +38,11 @@ function displayEmptyStars(){
     for(let i=0;i<5;i++){
         let createSpan=document.createElement("i");
         if(rating>i){
-        createSpan.setAttribute("class","fa fa-star");
+        createSpan.setAttribute("class","star fa fa-star");
         }else{
-            createSpan.setAttribute("class","fa fa-star-o");        
+            createSpan.setAttribute("class","star fa fa-star-o");        
         }
-        createSpan.setAttribute("style","font-size:30px;color:rgba(255, 255, 0, 0.5)")
+        
         createSpan.addEventListener("mouseover",(event)=>{
             onHoverStars(event,i+1)
         })
